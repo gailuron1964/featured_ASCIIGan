@@ -76,15 +76,15 @@ def asciiart(in_f, SC, GCF,  out_f, color1='black', color2='blue', bgcolor='whit
 
 
 def load_image(filename, size=(512,512)):
-	# load image with the preferred size
-	pixels = load_img(filename, target_size=size)
-	# convert to numpy array
-	pixels = img_to_array(pixels)
-	# scale from [0,255] to [-1,1]
-	pixels = (pixels - 127.5) / 127.5
-	# reshape to 1 sample
-	pixels = expand_dims(pixels, 0)
-	return pixels
+  # load image with the preferred size
+  pixels = load_img(filename, target_size=size)
+  # convert to numpy array
+  pixels = img_to_array(pixels)
+  # scale from [0,255] to [-1,1]
+  pixels = (pixels - 127.5) / 127.5
+  # reshape to 1 sample
+  pixels = expand_dims(pixels, 0)
+  return pixels
 
 
 def imgGen2(img1):
@@ -100,16 +100,14 @@ def imgGen2(img1):
   #img2.save('result.png')
   #img3 = Image.open('results_pink.png').resize(img.size)
   #img3.save('resultp.png')
-  return img2	
+  return img2 
 
 
 if uploaded_file is not None:
     #src_image = load_image(uploaded_file)
-    image = Image.open(uploaded_file)	
-	
+    image = Image.open(uploaded_file) 
+  
     st.image(uploaded_file, caption='Input Image', use_column_width=True)
     #st.write(os.listdir())
-    im = imgGen2(uploaded_file)	
-    st.image(im, caption='ASCII art', use_column_width=True) 	
-    
-
+    im = imgGen2(uploaded_file) 
+    st.image(im, caption='ASCII art', use_column_width=True)  
